@@ -1,7 +1,6 @@
 import { AdminDashboard1Component } from './../admin-dashboard1/admin-dashboard1.component';
 import { AdminComponent } from './../admin.component';
 import { NgModule, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { EnderecoComponent } from '../endereco/endereco.component';
 import { PessoaComponent } from '../pessoa/pessoa.component';
