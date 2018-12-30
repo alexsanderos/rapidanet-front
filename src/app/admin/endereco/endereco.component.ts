@@ -2,6 +2,9 @@ import { Component, OnInit, NgZone, ViewChild, ElementRef } from '@angular/core'
 import { AgmCoreModule, MapsAPILoader, MouseEvent } from '@agm/core';
 import { } from 'googlemaps';
 import { Endereco } from '../models/endereco';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PessoaService } from '../services/pessoa/pessoa.service';
+import { Pessoa } from '../models/pessoa';
 
 @Component({
   selector: 'app-endereco',
@@ -11,22 +14,27 @@ import { Endereco } from '../models/endereco';
 export class EnderecoComponent implements OnInit {
 
   title: string = 'Endereço';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = -22.788577054138884;
+  lng: number = -43.30822798465579;
   zoom: number = 15;
   draggable: boolean = true;
   enderecoBusca: string;
   endereco: Endereco;
+  pessoa: Pessoa = new Pessoa();
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone,
+    private route: ActivatedRoute,
+    private pessoaService: PessoaService,
+    private router: Router) { }
 
   ngOnInit() {
 
     this.endereco = new Endereco();
+    this.obterPessoa();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -68,6 +76,23 @@ export class EnderecoComponent implements OnInit {
       this.endereco.lat = $event.coords.lat;
       this.endereco.lng = $event.coords.lng;
     }
+  }
+
+
+  obterPessoa() : void {
+    this.route.params
+    .subscribe( params => {
+      if(params.id){
+        this.pessoaService
+          .obterPessoa(params.id)
+          .subscribe(pessoa => this.pessoa = pessoa);
+      }
+    });
+  }
+
+  voltar() : void {
+    console.log("voltar");
+    this.router.navigateByUrl('/admin/pessoa');
   }
 
 }

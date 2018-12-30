@@ -23,7 +23,7 @@ import { PessoaFormComponent } from '../pessoa-form/pessoa-form.component';
             component: AdminDashboard1Component
           },
           {
-            path: 'pessoa-form',
+            path: 'pessoa-form/:id',
             component: PessoaFormComponent
           },
           {
@@ -31,7 +31,7 @@ import { PessoaFormComponent } from '../pessoa-form/pessoa-form.component';
             component: PessoaComponent
           },
           {
-            path: 'endereco',
+            path: 'endereco/:id',
             component: EnderecoComponent
           }
         ]

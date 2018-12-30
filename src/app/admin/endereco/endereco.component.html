@@ -15,7 +15,7 @@
     <section class="content">
       
         <div class="panel panel-default">
-          <div class="panel-heading">Editar Endereço</div>
+          <div class="panel-heading">Editar Endereço - <strong>{{pessoa.nome}}</strong></div>
           <div class="panel-body">
 
               <div class="row">
@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="col-md-12 text-center m-t-20">
                       <button class="btn btn-success">Salvar</button>
-                      <button class="btn btn-danger">Cancelar</button>
+                      <button class="btn btn-danger" (click)="voltar()">Cancelar</button>
                     </div>
                 </div>
 

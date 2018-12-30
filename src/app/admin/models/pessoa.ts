@@ -1,4 +1,5 @@
 export class Pessoa {
+    id: number;
     cpfcnpj: string;
     nome: string;
     responsavel: string;
@@ -7,4 +8,6 @@ export class Pessoa {
     nomeContato: string;
     tipoContato: string;
     status: boolean;
+    tipo: string;
+    dataAlteracao: Date;
   }

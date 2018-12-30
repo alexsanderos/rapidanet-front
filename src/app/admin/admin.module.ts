@@ -14,6 +14,7 @@ import { AgmCoreModule } from '@agm/core';
 import { EnderecoComponent } from './endereco/endereco.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
+import { PessoaService } from './services/pessoa/pessoa.service';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
     AdminDashboard1Component,    
     EnderecoComponent, PessoaComponent, PessoaFormComponent
   ],
-  exports: [AdminComponent]
+  exports: [AdminComponent],
+  providers : [PessoaService]
 })
 export class AdminModule { }
