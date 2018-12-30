@@ -1,9 +1,11 @@
-import { AdminDashboard2Component } from './../admin-dashboard2/admin-dashboard2.component';
 import { AdminDashboard1Component } from './../admin-dashboard1/admin-dashboard1.component';
 import { AdminComponent } from './../admin.component';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { EnderecoComponent } from '../endereco/endereco.component';
+import { PessoaComponent } from '../pessoa/pessoa.component';
+import { PessoaFormComponent } from '../pessoa-form/pessoa-form.component';
 
 @NgModule({
   imports: [
@@ -22,8 +24,16 @@ import { RouterModule } from '@angular/router';
             component: AdminDashboard1Component
           },
           {
-            path: 'dashboard2',
-            component: AdminDashboard2Component
+            path: 'pessoa-form',
+            component: PessoaFormComponent
+          },
+          {
+            path: 'pessoa',
+            component: PessoaComponent
+          },
+          {
+            path: 'endereco',
+            component: EnderecoComponent
           }
         ]
       }

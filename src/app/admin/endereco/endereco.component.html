@@ -1,0 +1,106 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Endereço
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      
+        <div class="panel panel-default">
+          <div class="panel-heading">Editar Endereço</div>
+          <div class="panel-body">
+
+              <div class="row">
+                  <div class="form-group col-md-6">
+                      <input id="endereco_busca" #search class="form-control" type="text" placeholder="Buscar um endereço" style="border: solid 2px orange;">
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="endereco.logradouro">Rua: </label>
+                    <input id="route" type="text" class="form-control" [(ngModel)]="endereco.logradouro" name="endereco.logradouro" readonly>
+                  </div>
+                  <div class="form-group col-md-1">
+                    <label for="endereco.numero">Número: </label>
+                    <input id="numero" type="text" class="form-control" [(ngModel)]="endereco.numero" name="endereco.numero">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="district">Bairro: </label>
+                    <input id="bairro" type="text" class="form-control" [(ngModel)]="endereco.bairro" name="endereco.bairro" readonly>
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label for="endereco.cidade">Cidade: </label>
+                    <input id="administrative_area_level_2" type="text" class="form-control" [(ngModel)]="endereco.cidade" name="endereco.cidade" readonly>
+                  </div>		
+                  <div class="form-group col-md-1">
+                    <label for="endereco.estado">Estado: </label>
+                    <input id="estado" type="text" class="form-control" [(ngModel)]="endereco.estado" name="endereco.estado" readonly>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="endereco.cep">CEP: </label>
+                    <input id="cep" type="text" class="form-control" [(ngModel)]="endereco.cep" name="endereco.cep" readonly>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="endereco.complemento">Complemento: </label>
+                    <input type="text" id="complemento" class="form-control" [(ngModel)]="endereco.complemento" name="endereco.complemento">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label for="endereco.lng">Longitude: </label>
+                    <input type="number" class="form-control" [(ngModel)]="endereco.lng" name="endereco.lng" readonly>
+                  </div>
+                  <div class="form-group col-md-3">
+                      <label for="endereco.lng">Latitude: </label>
+                      <input type="number" class="form-control" [(ngModel)]="endereco.lat" name="endereco.lat" readonly>
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <input id="location" type="hidden" class="form-control" name="location" maxlength="255">
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="col-md-12">
+                      <agm-map 
+                      [latitude]="lat" 
+                      [longitude]="lng"
+                      [zoom]="zoom">
+                        <agm-marker 
+                        [latitude]="lat" 
+                        [longitude]="lng"
+                        [markerDraggable]="draggable"
+                        (dragEnd)="markerDragEnd($event)">
+                        </agm-marker>
+                      </agm-map>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center m-t-20">
+                      <button class="btn btn-success">Salvar</button>
+                      <button class="btn btn-danger">Cancelar</button>
+                    </div>
+                </div>
+
+          </div>
+        </div>
+            
+          </section>
+
+    <!-- /.content -->
+  </div>

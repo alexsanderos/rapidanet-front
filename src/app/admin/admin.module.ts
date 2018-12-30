@@ -8,12 +8,22 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminComponent } from './admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.component';
+import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
+import { EnderecoComponent } from './endereco/endereco.component';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAzkwiQXdOQ_GOdw1aEfmv7COLutAWQ2Rw',
+      libraries: ["places"]
+    })
   ],
   declarations: [
     AdminComponent,
@@ -22,8 +32,8 @@ import { AdminDashboard2Component } from './admin-dashboard2/admin-dashboard2.co
     AdminContentComponent,
     AdminFooterComponent,
     AdminControlSidebarComponent,
-    AdminDashboard1Component,
-    AdminDashboard2Component
+    AdminDashboard1Component,    
+    EnderecoComponent, PessoaComponent, PessoaFormComponent
   ],
   exports: [AdminComponent]
 })

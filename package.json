@@ -1,6 +1,6 @@
 {
-  "name": "angular-admin-lte",
-  "version": "0.0.0",
+  "name": "rapidanet",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "^5.1.1",
     "@angular/common": "^5.1.1",
     "@angular/compiler": "^5.1.1",
@@ -36,6 +37,7 @@
     "core-js": "^2.4.1",
     "daterangepicker": "^2.1.25",
     "font-awesome": "^4.7.0",
+    "http-server": "^0.11.1",
     "icheck": "^1.0.2",
     "install": "^0.10.1",
     "ionicons": "^3.0.0",
@@ -48,13 +50,16 @@
     "morris.js": "^0.5.0",
     "npm": "^5.3.0",
     "raphael": "^2.2.7",
-    "rxjs": "^5.5.5",
+    "rxjs": "^6.3.3",
+    "rxjs-compat": "^6.3.3",
+    "tslib": "^1.9.0",
     "zone.js": "^0.8.17"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.0",
+    "@angular-devkit/build-angular": "~0.11.0",
     "@angular/compiler-cli": "^5.1.1",
     "@angular/language-service": "^4.4.3",
+    "@types/googlemaps": "^3.30.16",
     "@types/jasmine": "~2.8.2",
     "@types/jasminewd2": "~2.0.2",
     "@types/jquery": "^3.2.17",
@@ -72,6 +77,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "less": "~2.7.0"
   }
 }
