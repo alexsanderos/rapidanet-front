@@ -17,7 +17,7 @@ export class PessoaComponent implements OnInit {
     this.obterPessoas();
   }
 
-  obterPessoas() : void{
+  obterPessoas() : void {
     this.pessoaService.obterPessoas()
     .subscribe(pessoas => this.pessoas = pessoas);
   }
