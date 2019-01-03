@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 
+dump.sql
+
 # dependencies
 /node_modules
 

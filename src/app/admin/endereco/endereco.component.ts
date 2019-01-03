@@ -5,6 +5,7 @@ import { Endereco } from '../models/endereco';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PessoaService } from '../services/pessoa/pessoa.service';
 import { Pessoa } from '../models/pessoa';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-endereco',
@@ -50,14 +51,42 @@ export class EnderecoComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
+          
           if( place.address_components ) {
-            this.endereco.logradouro = place.address_components[0].long_name;
-            this.endereco.bairro = place.address_components[1].long_name;
-            this.endereco.cidade = place.address_components[2].long_name;
-            this.endereco.estado = place.address_components[3].short_name;
-            this.endereco.pais = place.address_components[4].long_name;
-            this.endereco.cep = place.address_components[5].long_name;
+
+            
+            for (let i = 0; i < place.address_components.length; i++) {
+
+              if(place.address_components[i].types.find(x => x == "street_number")){
+                this.endereco.numero = place.address_components[i].short_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "route")){
+                this.endereco.logradouro = place.address_components[i].short_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "sublocality_level_1")){
+                this.endereco.bairro = place.address_components[i].short_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "administrative_area_level_2")){
+                this.endereco.cidade = place.address_components[i].short_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "administrative_area_level_1")){
+                this.endereco.estado = place.address_components[i].short_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "country")){
+                this.endereco.pais = place.address_components[i].long_name;
+              }
+
+              if(place.address_components[i].types.find(x => x == "postal_code")){
+                this.endereco.cep = place.address_components[5].long_name;
+              }
+              
+            }
+
             this.endereco.lat = place.geometry.location.lat();
             this.endereco.lng = place.geometry.location.lng();
           }
