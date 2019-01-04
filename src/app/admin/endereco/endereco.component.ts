@@ -35,7 +35,7 @@ export class EnderecoComponent implements OnInit {
   ngOnInit() {
 
     this.endereco = new Endereco();
-    this.obterPessoa();
+    //this.obterPessoa();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -108,7 +108,7 @@ export class EnderecoComponent implements OnInit {
   }
 
 
-  obterPessoa() : void {
+  /*obterPessoa() : void {
     this.route.params
     .subscribe( params => {
       if(params.id){
@@ -117,7 +117,7 @@ export class EnderecoComponent implements OnInit {
           .subscribe(pessoa => this.pessoa = pessoa);
       }
     });
-  }
+  }*/
 
   voltar() : void {
     console.log("voltar");

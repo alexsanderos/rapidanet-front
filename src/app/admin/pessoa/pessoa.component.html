@@ -32,10 +32,10 @@
                       <tbody>
                         <tr *ngFor="let pessoa of pessoas">       
                           <td class="text-center">{{pessoa.id}}</td>
-                          <td class="text-center">{{pessoa.tipo}}</td>
+                          <td class="text-center">{{pessoa.tipoPessoa}}</td>
                           <td>{{pessoa.nome}}</td>
-                          <td class="text-center">{{pessoa.cpfcnpj}}</td>
-                          <td>{{pessoa.nomeContato}}</td>
+                          <td class="text-center">{{pessoa.cpf || pessoa.cnpj}}</td>
+                          <td>{{pessoa.responsavel}}</td>
                           <td>{{pessoa.email}}</td>
                           <td class="text-center">{{ pessoa.dataAlteracao | date:'dd/MM/yyyy' }}</td>
                           <td class="text-center">
@@ -52,7 +52,13 @@
                     </table>
                 </div>
             </div>
-
+            <div class="row">
+              <div class="col-md-3">
+                  <button class="btn btn-warning" title="Adiciona nova pessoa">
+                    <i class="fa fa-plus"></i>&nbsp;&nbsp;Adicionar Pessoa
+                  </button>
+              </div>
+            </div>
           </div>
         </div>
     </section>

@@ -18,10 +18,10 @@ export class PessoaFormComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.obterPessoa();    
+    //this.obterPessoa();    
   }
 
-  obterPessoa() : void {
+  /*obterPessoa() : void {
     this.route.params
     .subscribe( params => {
       if(params.id){
@@ -30,7 +30,7 @@ export class PessoaFormComponent implements OnInit {
           .subscribe(pessoa => this.pessoa = pessoa);
       }
     });
-  }
+  }*/
 
   voltar() : void {
     this.router.navigateByUrl('/admin/pessoa');
