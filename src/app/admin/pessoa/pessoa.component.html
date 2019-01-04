@@ -24,7 +24,6 @@
                             <th>Razão Social/Nome</th>
                             <th>CPF/CNPJ</th>
                             <th>Responsável</th>
-                            <th>Email</th>
                             <th class="text-center" style="width: 150px;">Última Alteração</th>
                             <th class="text-center" style="width: 150px;">Ação</th>
                           </tr>
@@ -36,7 +35,6 @@
                           <td>{{pessoa.nome}}</td>
                           <td class="text-center">{{pessoa.cpf || pessoa.cnpj}}</td>
                           <td>{{pessoa.responsavel}}</td>
-                          <td>{{pessoa.email}}</td>
                           <td class="text-center">{{ pessoa.dataAlteracao | date:'dd/MM/yyyy' }}</td>
                           <td class="text-center">
                             <a routerLink="/admin/endereco/{{pessoa.id}}" title="Visualizar Endereços" class="btn-sm btn-default">
