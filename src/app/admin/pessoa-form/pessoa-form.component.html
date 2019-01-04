@@ -18,9 +18,23 @@
           <div class="panel-heading">Dados</div>
           <div class="panel-body">
               <div class="row">
-                  <div class="form-group col-md-4">
-                    <label for="pessoa.cpfcnpj">CPF/CNPJ: </label>
-                    <input id="pessoa.cpfcnpj" type="text" class="form-control" [(ngModel)]="pessoa.cpfcnpj" name="pessoa.cpfcnpj" placeholder="Digite um CPF ou CNPJ">
+                  <div class="form-group col-md-3">
+                      <label for="">Tipo de Pessoa:</label>
+                      <select name="pessoa.tipoPessoa" class="form-control" [(ngModel)]="pessoa.tipoPessoa">
+                        <option value="PESSOA_FISICA"> Pessoa Física </option>
+                        <option value="PESSOA_JURIDICA"> Pessoa Jurídica </option>
+                      </select>
+                      <span class="hidden"></span>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-md-4" *ngIf="pessoa.tipoPessoa == 'PESSOA_FISICA'">
+                    <label for="pessoa.cpfcnpj">CPF: </label>
+                    <input id="pessoa.cpf" type="text" class="form-control" [(ngModel)]="pessoa.cpf" name="pessoa.cpf" placeholder="Digite um CPF">
+                  </div>
+                  <div class="form-group col-md-4" *ngIf="pessoa.tipoPessoa == 'PESSOA_JURIDICA'">
+                    <label for="pessoa.cpnpj">CNPJ: </label>
+                    <input id="pessoa.cnpj" type="text" class="form-control" [(ngModel)]="pessoa.cnpj" name="pessoa.cnpj" placeholder="Digite um CNPJ">
                   </div>
               </div>
               <div class="row">
@@ -32,6 +46,16 @@
                     <label for="pessoa.responsavel">Responsável: </label>
                     <input id="bairro" type="text" class="form-control" [(ngModel)]="pessoa.responsavel" placeholder="Digite o nome do responsável" name="pessoa.responsavel">
                   </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="pessoa.cargo">Cargo: </label>
+                    <input id="pessoa.cargo" type="text" class="form-control" [(ngModel)]="pessoa.cargo" name="pessoa.cargo" placeholder="Digite o Cargo">
+                  </div>
+                  <div class="form-group col-md-4">
+                      <label for="pessoa.setor">Setor: </label>
+                      <input id="pessoa.setor" type="text" class="form-control" [(ngModel)]="pessoa.setor" name="pessoa.setor" placeholder="Digite o Setor">
+                    </div>
               </div>
           </div>
         </div>
@@ -91,8 +115,8 @@
                   <div class="form-group col-md-3">
                       <label for="">Status:</label>
                       <select name="pessoa.status" class="form-control" [(ngModel)]="pessoa.status">
-                        <option value="true"> ATIVO </option>
-                        <option value="false"> INATIVO </option>
+                        <option value="ATIVO"> ATIVO </option>
+                        <option value="INATIVO"> INATIVO </option>
                       </select>
                       <span class="hidden"></span>
                     </div>
@@ -102,7 +126,7 @@
 
         <div class="row">
             <div class="col-md-12 text-center m-t-20">
-              <button class="btn btn-success">Salvar</button>
+              <button class="btn btn-success" (click)="salvarPessoa()">Salvar</button>
               <button class="btn btn-danger" (click)="voltar()" >Cancelar</button>
             </div>
         </div>

@@ -27,6 +27,10 @@ import { PessoaFormComponent } from '../pessoa-form/pessoa-form.component';
             component: PessoaFormComponent
           },
           {
+            path: 'pessoa-form',
+            component: PessoaFormComponent
+          },
+          {
             path: 'pessoa',
             component: PessoaComponent
           },
